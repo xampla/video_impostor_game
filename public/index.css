@@ -51,8 +51,12 @@ canvas {
 
 #githubSponsor {
   border: 0;
-  display: block;
+}
+
+#donations {
   margin: 0.3% auto;
+  width: 50%;
+  text-align: center;
 }
 
 .deleteButton {
