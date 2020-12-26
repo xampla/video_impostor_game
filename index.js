@@ -101,7 +101,7 @@ api.post('/', (req, res) => {
   res.json("hi");
 });
 
-app.listen(8000, () => {
+app.listen(process.env.PORT || 8000, () => {
   console.log('Example app listening on port 8000!')
 });
 
