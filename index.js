@@ -6,7 +6,6 @@ var nodemailer = require('nodemailer');
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const https = require('https');
-var config = require('./config');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -20,12 +19,12 @@ api.get('/', (req, res) => {
 
 function sendEmail(emailPlayer,word,role) {
   const oauth2Client = new OAuth2(
-       config.mail.clientId, // ClientID
-       config.mail.clientSecret, // Client Secret
-       config.mail.redirectURL // Redirect URL
+       process.env.clientId, // ClientID
+       process.env.clientSecret, // Client Secret
+       process.env.redirectURL // Redirect URL
   );
   oauth2Client.setCredentials({
-       refresh_token: config.mail.refreshToken
+       refresh_token: process.env.refreshToken
   });
   const accessToken = oauth2Client.getAccessToken();
 
@@ -46,7 +45,7 @@ function sendEmail(emailPlayer,word,role) {
    else body = "<h1>IMPOSTOR GAME</h1><p>La palabra que te ha tocado es: <u>"+word+"</u>.</p><p>Gracias por jugar.</p>"
 
    const mailOptions = {
-      from: config.mail.user,
+      from: process.env.user,
       to: emailPlayer,
       subject: "[IMPOSTOR GAME] Distribución de roles",
       generateTextFromHTML: true,
