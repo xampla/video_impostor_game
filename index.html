@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Impostor Game</title>
+    <meta name="description" content="Envía los roles de forma fácil para jugar al mítico juego del impostor"/>
+    <meta name="keywords" content="impostor,game,impostor game,roles"/>
+    <link  rel="icon"   href="./favicon.png" type="image/png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Impostor Game">
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Impostor Game" />
+    <meta property="og:description" content="Envía los roles de forma fácil para jugar al mítico juego del impostor">
+    <meta property="og:image" content="https://video-impostor-game.web.app/impostor_game_card_img.png">
+    <meta property="og:url" content="https://video-impostor-game.web.app">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" type="text/css" href="./index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="particles-js"></div>
+    <div id="root">
+      <img id="title" src=./title.png alt="title" width="40%"></img>
+      <div  class="FormContainer">
+        <p  class="phrase">Añade los correos electrónicos de cada jugador:</p>
+        <form id="playersForm">
+          <label id="label_1" htmlFor="email" class="label">Player 1 </label>
+          <input id="email_1" name="email_1" type="email" class="emailInput" required></input>
+          <label id="label_2" htmlFor="email" class="label">Player 2 </label>
+          <input id="email_2" name="email_2" type="email" class="emailInput" required></input>
+          <label id="label_3" htmlFor="email" class="label">Player 3 </label>
+          <input id="email_3" name="email_3" type="email" class="emailInput" required></input>
+          <label id="label_4" htmlFor="email" class="label">Player 4 </label>
+          <input id="email_4" name="email_4" type="email" class="emailInput" required></input>
+          <label id="label_5" htmlFor="email" class="label">Player 5 </label>
+          <input id="email_5" name="email_5" type="email" class="emailInput" required></input>
+          <div id="buttonContainer">
+            <button type="button" class="deleteButton" onclick="deletePlayer()">
+              <img id="deleteIMG" src=./delete.png alt="delete"></img>
+            </button>
+            <button type="button" class="addButton" onclick="addPlayer()">
+              <img id="addIMG" src=./add.png alt="añadir"></img>
+            </button>
+          </div>
+          <button type="submit" id="sendButton">ENVIAR ROLES</button>
+        </form>
+        <p id="ruleDesc" >
+          <small  class="phrase ruleDesc">Lee el reglamento propuesto <a id="centered-toggle-button"  class="rulesLink" onclick="showModal()">aquí</a>.
+          </small>
+        </p>
+      </div>
+      <iframe id="githubSponsor" src="https://github.com/sponsors/xampla/button" title="Sponsor xampla" height="35" width="116"></iframe>
+    </div>
+    <div class="modal off" id="modal">
+      <h2>Funcionamiento del juego</h2>
+      <div class="content">
+        <p>Todos los participantes recibirán por correo la misma palabra menos uno, que recibirá "IMPOSTOR".
+        Los que no sean impostores deberán enviar un vídeo que haga referencia a la palabra de manera sutil. El objetivo del impotor es ser capaz de pasar desapercibido
+         enviando un vídeo que cuadre con la temática. Podrá enviarlo el último o de los primeros para levantar menos sospechas. Una vez que todos hayan enviado un vídeo deberéis averiguar quien era el impostor. Estas son las normas propuestas para el juego, siéntete libre de modificarlas y adaptarlas a vuestro gusto:</p>
+        <ul>
+          <li>El periodo máximo para enviar el vídeo es de una semana.</li>
+          <li>Los tripulantes deberan enviar un vídeo haciendo referencia a la palabra que ha tocado de una forma sutil.</li>
+          <li>Los tripulantes no pueden enseñar directamente la acción o el objeto que haya tocado.</li>
+          <li>Los tripulantes no pueden hacer estrategias. Por ejemplo, ponerse de acuerdo para que el último haga una refernecia bastante notable para descartarlo directamente de la votación.</li>
+          <li>El periodo de votación es de 24h.</li>
+          <li>Se recomienda que durante la fase de envío de vídeos no se pueda comentar nada.</li>
+        </ul>
+      </div>
+      <div class="actions">
+        <button onclick=hideModal()>
+          OK
+        </button>
+      </div>
+    </div>
+    <script type="text/javascript" src="./particles.js"></script>
+    <script type="text/javascript" src="./utilities.js"></script>
+  </body>
+</html>
