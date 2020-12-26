@@ -33,10 +33,10 @@ function sendEmail(emailPlayer,word,role) {
      service: "Gmail",
      auth: {
           type: "OAuth2",
-          user: config.mail.user,
-          clientId: config.mail.clientId,
-          clientSecret: config.mail.clientSecret,
-          refreshToken: config.mail.refreshToken,
+          user: process.env.EMAIL_USER,
+          clientId: process.env.clientId,
+          clientSecret: process.env.clientSecret,
+          refreshToken: process.env.refreshToken,
           accessToken: accessToken
      }
    });
